@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h3>Update Order Details</h3>
+
+    <div class="card p-3">
+        <p><strong>Order ID:</strong> {{ order.id }}</p>
+        <p><strong>Customer:</strong> {{ order.customer.username }}</p>
+        <p><strong>Dress Type:</strong> {{ order.dress_type }}</p>
+
+        <h5>Customer Measurements:</h5>
+        <ul>
+            {% for key, value in order.measurements.items %}
+                <li><strong>{{ key|title }}:</strong> {{ value }}</li>
+            {% empty %}
+                <li>No measurements provided.</li>
+            {% endfor %}
+        </ul>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="fabric">Fabric Used:</label>
+                <select name="fabric" id="fabric" class="form-control">
+                    <option value="">Select fabric</option>
+                    {% for fabric in fabrics %}
+                        <option value="{{ fabric.id }}" {% if order.fabric_id == fabric.id %}selected{% endif %}>
+                            {{ fabric.name }} ({{ fabric.color }})
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label>Status:</label>
+                <select name="status" class="form-control">
+                    <option value="Pending" {% if order.status == "Pending" %}selected{% endif %}>Pending</option>
+                    <option value="In Progress" {% if order.status == "In Progress" %}selected{% endif %}>In Progress</option>
+                    <option value="Ready" {% if order.status == "Ready" %}selected{% endif %}>Ready</option>
+                    <option value="Delivered" {% if order.status == "Delivered" %}selected{% endif %}>Delivered</option>
+                    <option value="Cancelled" {% if order.status == "Cancelled" %}selected{% endif %}>Cancelled</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label>Progress (%):</label>
+                <input
+                    type="number"
+                    name="progress"
+                    class="form-control"
+                    value="{{ order.progress }}"
+                    min="0"
+                    max="100"
+                >
+            </div>
+
+            <div class="mb-3">
+                <label>Inventory Notes:</label>
+                <textarea name="inventory_notes" class="form-control">{{ order.inventory_notes }}</textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

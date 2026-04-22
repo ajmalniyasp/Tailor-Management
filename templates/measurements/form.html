@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% block title %}Add / Edit Measurement{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+    <h1 class="dashboard-title">
+        {% if selected_dress %}Add Measurement ({{ selected_dress.name }}){% else %}Add Measurement{% endif %}
+    </h1>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Measurement Details</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <!-- Display form errors -->
+                    {% if form.errors %}
+                    <div class="alert alert-danger">
+                        <strong>Please correct the following errors:</strong>
+                        <ul>
+                            {% for field, errors in form.errors.items %}
+                                {% for error in errors %}
+                                    <li>{{ field|title }}: {{ error }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+
+                    <div class="mb-3">
+                        <label for="id_dress_type" class="form-label">Dress Type *</label>
+                        <select name="dress_type" class="form-select" required onchange="this.form.submit()">
+                            <option value="">Select Dress Type</option>
+                            {% for dt in dress_types %}
+                                <option value="{{ dt.id }}"
+                                        {% if selected_dress and dt.id == selected_dress.id %}selected{% endif %}>
+                                    {{ dt.name }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Show measurement fields only if dress type is selected -->
+<!--                    {% if selected_dress %}-->
+<!--                        <div class="mb-3">-->
+<!--                            <h5>Please enter the following measurements (in centimeters):</h5>-->
+<!--                        </div>-->
+
+                        <div class="row mb-4">
+                            <div class="col-md-4">
+                                <label for="fabric" class="form-label">Fabric</label>
+<!--                                <select name="fabric" id="fabric" class="form-control">-->
+<!--                                    <option value="">Select Fabric</option>-->
+<!--                                    {% for fabric in fabrics %}-->
+<!--                                        <option value="{{ fabric.id }}">{{ fabric.name }}</option>-->
+<!--                                    {% endfor %}-->
+<!--                                </select>-->
+                                    <select name="fabric" class="form-control">
+                                        {% for f in fabrics %}
+                                            <option value="{{ f.id }}">{{ f.name }}</option>
+                                        {% endfor %}
+                                    </select>
+
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="color" class="form-label">Color</label>
+                                <input type="text" name="color" id="color" class="form-control"
+                                       placeholder="e.g. Royal Blue or #0000FF">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="quantity" class="form-label">Quantity</label>
+                                <input type="number" name="quantity" id="quantity" class="form-control"
+                                       min="1" value="1">
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label for="staff" class="form-label">Select Tailor</label>
+                                <select name="staff" id="staff" class="form-control">
+                                    <option value="">Select Tailor</option>
+                                    {% for s in staff %}
+                                        <option value="{{ s.id }}">{{ s.username }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <hr>
+
+                        <div class="mb-3">
+                            <h5>Please enter the following measurements (in centimeters):</h5>
+                        </div>
+
+                        {% for field_name in selected_dress.required_fields %}
+                            {% if field_name in form.fields %}
+                            <div class="mb-3">
+                                <label for="id_{{ field_name }}" class="form-label">
+                                    {{ field_name|title }}
+                                </label>
+                                <input type="number"
+                                       name="{{ field_name }}"
+                                       id="id_{{ field_name }}"
+                                       class="form-control"
+                                       step="0.01"
+                                       min="0"
+                                       placeholder="Enter {{ field_name|title }} in cm"
+                                       required>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Save Measurement
+                            </button>
+                            <a href="{% url 'orders:measurement_list' %}" class="btn btn-secondary">
+                                <i class="fas fa-times"></i> Cancel
+                            </a>
+                        </div>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

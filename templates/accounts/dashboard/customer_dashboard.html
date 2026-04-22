@@ -1,0 +1,378 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Customer Dashboard - TailorPro{% endblock %}
+
+{% block content %}
+<!-- Dashboard Header -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Welcome back, <span>{{ request.user.first_name }}</span>!</h1>
+                <p>Here's an overview of your tailoring orders and quick access to manage your measurements and bookings.</p>
+                <div class="hero-buttons">
+                    <a href="{% url 'orders:measurement_create' %}" class="btn btn-primary btn-large">
+                        <i class="fas fa-plus"></i> Place New Order
+                    </a>
+                    <a href="{% url 'orders:measurement_list' %}" class="btn btn-accent btn-large">
+                        <i class="fas fa-list"></i> View My Orders
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-placeholder">
+                    <div style="text-align: center;">
+                        <i class="fas fa-user-tie" style="font-size: 80px; margin-bottom: 20px; color: var(--accent);"></i>
+                        <h3>Customer Portal</h3>
+                        <p>Manage Your Tailoring Needs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats">
+    <div class="container">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-number">{{ pending_orders|default:"3" }}</div>
+                <div class="stat-text">Pending Orders</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="stat-number">{{ in_progress_orders|default:"2" }}</div>
+                <div class="stat-text">In Progress</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-number">{{ completed_orders|default:"7" }}</div>
+                <div class="stat-text">Completed Orders</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <div class="stat-number">{{ total_orders|default:"12" }}</div>
+                <div class="stat-text">Total Orders</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Actions Section -->
+<section class="features">
+    <div class="container">
+        <div class="section-title">
+            <h2>Quick Actions</h2>
+            <p>Manage your tailoring experience with these quick access features</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-list"></i>
+                </div>
+                <h3>My Orders</h3>
+                <p>View and manage all your current and past tailoring orders in one place.</p>
+                <a href="{% url 'orders:measurement_list' %}" class="btn btn-outline" style="margin-top: 15px;">View Orders</a>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>Track Order Status</h3>
+                <p>Monitor the progress of your current orders in real-time.</p>
+                <a href="#" class="btn btn-outline" style="margin-top: 15px;">Track Orders</a>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-user-edit"></i>
+                </div>
+                <h3>Update Profile</h3>
+                <p>Keep your personal information and preferences up to date.</p>
+                <a href="{% url 'accounts:customer_profile' %}" class="btn btn-outline" style="margin-top: 15px;">Edit Profile</a>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-file-invoice"></i>
+                </div>
+                <h3>My Invoices</h3>
+                <p>Access and download invoices for all your completed orders.</p>
+                <a href="#" class="btn btn-outline" style="margin-top: 15px;">View Invoices</a>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-vest"></i>
+                </div>
+                <h3>Dress Catalog</h3>
+                <p>Browse available dress types and styles for your next order.</p>
+                <a href="{% url 'orders:dresstype_list' %}" class="btn btn-outline" style="margin-top: 15px;">Browse Dresses</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Available Dresses Section -->
+<section class="how-it-works">
+    <div class="container">
+        <div class="section-title">
+            <h2>Available Dresses</h2>
+            <p>Explore our collection of traditional and contemporary dress types</p>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h3>Traditional Wear</h3>
+                <p>Beautiful traditional Indian attire perfect for weddings and festive occasions.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h3>Formal Wear</h3>
+                <p>Elegant formal suits and business attire tailored to perfection.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <h3>Casual Wear</h3>
+                <p>Comfortable and stylish casual outfits for everyday occasions.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h3>Special Occasions</h3>
+                <p>Exclusive designs for special events and celebrations.</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="{% url 'orders:dresstype_list' %}" class="btn btn-primary btn-large">Explore All Dress Types</a>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <h2>Ready for Your Next Tailoring Project?</h2>
+        <p>Start a new order and experience the perfect fit with our professional tailoring services.</p>
+        <a href="{% url 'orders:measurement_create' %}" class="btn btn-primary btn-large">Start New Order Now</a>
+    </div>
+</section>
+
+<!-- Feedback Section -->
+<section class="feedback">
+    <div class="container">
+        <div class="section-title">
+            <h2>Share Your Experience</h2>
+            <p>Your feedback helps us improve our services and tailor them to your needs</p>
+        </div>
+        <div class="feedback-container">
+            <div class="feedback-features">
+                <div class="feedback-feature">
+                    <div class="feedback-icon">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <div class="feedback-text">
+                        <h3>Share Your Thoughts</h3>
+                        <p>Tell us about your experience with our tailoring services.</p>
+                    </div>
+                </div>
+                <div class="feedback-feature">
+                    <div class="feedback-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="feedback-text">
+                        <h3>Suggest Improvements</h3>
+                        <p>Help us enhance our services with your valuable suggestions.</p>
+                    </div>
+                </div>
+                <div class="feedback-feature">
+                    <div class="feedback-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="feedback-text">
+                        <h3>Rate Our Service</h3>
+                        <p>Let us know how we're doing with your ratings and reviews.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="feedback-cta">
+                <div class="cta-content">
+                    <h3>We Value Your Opinion</h3>
+                    <p>Help us serve you better by sharing your feedback about our tailoring services</p>
+                    <a href="{% url 'customers:submit' %}" class="btn btn-primary btn-large">
+                        <i class="fas fa-paper-plane"></i> Give Your Feedback
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+<!-- Add this temporarily to your dashboard to test -->
+<div style="text-align: center; margin: 20px 0;">
+    <a href="{% url 'customers:view' %}" class="btn btn-outline">
+        <i class="fas fa-list"></i> View My Feedback
+    </a>
+</div>
+</section>
+
+<style>
+    * Additional styles for the customer dashboard */
+    .feature-card .btn {
+        margin-top: 15px;
+        width: 100%;
+    }
+
+    .step-number i {
+        font-size: 28px;
+    }
+
+   /* Feedback Section Styles - Dark Theme */
+    .feedback {
+        background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+        padding: 100px 0;
+        border-top: var(--border);
+    }
+
+    .feedback-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 60px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    .feedback-features {
+        flex: 1;
+        min-width: 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .feedback-cta {
+        flex: 1;
+        min-width: 300px;
+        text-align: center;
+    }
+
+    .cta-content {
+        background: var(--secondary);
+        padding: 40px 30px;
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+        border: var(--border);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cta-content::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: var(--accent);
+    }
+
+    .cta-content h3 {
+        margin-bottom: 15px;
+        color: var(--text);
+        font-size: 24px;
+    }
+
+    .cta-content p {
+        margin-bottom: 30px;
+        color: var(--text-light);
+        font-size: 16px;
+    }
+
+    .feedback-feature {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 20px;
+        background: var(--secondary);
+        border-radius: 10px;
+        transition: var(--transition);
+        border: var(--border);
+    }
+
+    .feedback-feature:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow);
+        border-color: var(--accent);
+    }
+
+    .feedback-icon {
+        background: var(--accent);
+        color: var(--primary);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: 24px;
+        box-shadow: 0 5px 15px rgba(187, 134, 252, 0.3);
+    }
+
+    .feedback-text h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+        color: var(--text);
+    }
+
+    .feedback-text p {
+        color: var(--text-light);
+        margin: 0;
+        font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+        .feedback-container {
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .feedback-features, .feedback-cta {
+            width: 100%;
+        }
+
+        .feedback-feature {
+            padding: 15px;
+        }
+
+        .feedback-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+        }
+
+        .cta-content {
+            padding: 30px 20px;
+        }
+    }
+
+</style>
+{% endblock %}

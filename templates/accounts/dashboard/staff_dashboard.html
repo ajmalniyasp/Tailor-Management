@@ -1,0 +1,756 @@
+{% extends "base.html" %}
+{% load static %}
+{% load custom_filters %}
+
+
+{% block title %}Staff Dashboard - TailorPro{% endblock %}
+
+{% block content %}
+<!-- Dashboard Header -->
+<section class="hero" style="min-height: auto; padding: 60px 0 40px;">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text" style="max-width: none; flex: 2;">
+                <h1>Welcome, <span>{{ request.user.first_name }}</span></h1>
+                <p>Your personalized staff dashboard overview and order management center.</p>
+            </div>
+            <div class="hero-image" style="flex: 1; justify-content: flex-end;">
+                <div class="hero-image-placeholder" style="width: 300px; height: 150px;">
+                    <div style="text-align: center;">
+                        <i class="fas fa-user-tie" style="font-size: 50px; margin-bottom: 15px; color: var(--accent);"></i>
+                        <h3>Staff Portal</h3>
+                        <p>Professional Dashboard</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats">
+    <div class="container">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-boxes-stacked"></i>
+                </div>
+                <div class="stat-number">{{ assigned_orders|default:"0" }}</div>
+                <div class="stat-text">Assigned Orders</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-spinner"></i>
+                </div>
+                <div class="stat-number">{{ in_progress_orders|default:"0" }}</div>
+                <div class="stat-text">In Progress</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-circle-check"></i>
+                </div>
+                <div class="stat-number">{{ completed_today|default:"0" }}</div>
+                <div class="stat-text">Completed Today</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="stat-number">4.7/5</div>
+                <div class="stat-text">Customer Rating</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="features" style="padding: 60px 0; background: var(--primary);">
+    <div class="container">
+        <div class="dashboard-grid">
+            <!-- Orders Section -->
+            <div class="dashboard-main">
+                <!-- Active Orders Card -->
+                <div class="feature-card" style="text-align: left; padding: 30px;">
+                    <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: var(--border);">
+                        <h3 style="margin: 0; color: var(--text); font-size: 1.5rem;">Pending Orders</h3>
+                        <a href="#" class="btn btn-outline btn-small">View All</a>
+                    </div>
+
+                    <div class="table-container">
+                        <table class="dashboard-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Customer</th>
+                                    <th>Item</th>
+                                    <th>Measurements</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i in orders %}
+                                <tr>
+                                    <td class="order-id">{{ i.auto_id }}</td>
+                                    <td class="customer-name">{{ i.customer }}</td>
+                                     <td class="item-name">
+                                        {% for item in i.items.all %}
+                                            {{ item.measurement.dress_type.name }}{% if not forloop.last %}, {% endif %}
+                                        {% endfor %}
+                                    </td>
+                                    <td class="measurements">
+                                        {% for item in i.items.all %}
+                                            {% for field, value in item.measurement.get_measurements_list %}
+                                                {{ field|replace_underscore }}: {{ value }} cm{% if not forloop.last %}, {% endif %}
+                                            {% endfor %}
+                                            {% if not forloop.last %}<br><hr style="border-color:#666">{% endif %}
+                                        {% endfor %}
+                                    </td>
+
+
+                                    <td>
+                                        <span class="status-badge status-{{ i.status|lower }}">{{ i.status }}</span>
+                                    </td>
+                                    <td>
+                                        <div class="action-dropdown">
+                                            <button class="btn btn-outline btn-small dropdown-toggle">
+                                                <i class="fas fa-ellipsis-v"></i>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="{% url 'accounts:staff_update_order' i.id %}">
+                                                    <i class="fas fa-edit"></i> Update Progress
+                                                </a>
+                                                {% for item in i.items.all %}
+                                                    <a class="dropdown-item" href="{% url 'accounts:staff_measurement_detail' item.measurement.id %}">
+                                                        <i class="fas fa-ruler"></i> View Details
+                                                    </a>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="6" class="no-orders">
+                                        <i class="fas fa-inbox" style="font-size: 2rem; margin-bottom: 10px; color: var(--text-light);"></i>
+                                        <p>No assigned orders yet.</p>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+<section class="feedback-list">
+    <div class="container">
+        <div class="section-header">
+            <h2>Feedback History ({{ feedback_count }})</h2>
+        </div>
+
+        {% if page_obj %}
+        <div class="feedback-items">
+            {% for feedback in page_obj %}
+            <div class="feedback-item">
+                <div class="feedback-header">
+                    <div class="feedback-meta">
+                        <div class="rating">
+                            {% for i in "12345" %}
+                                {% if forloop.counter <= feedback.rating %}
+                                    <i class="fas fa-star filled"></i>
+                                {% else %}
+                                    <i class="far fa-star"></i>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <span class="date">{{ feedback.created_at|date:"M d, Y" }}</span>
+                        {% if feedback.order %}
+                        <span class="order-ref">Order: #{{ feedback.order.id }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="feedback-content">
+                    <p>{{ feedback.comments }}</p>
+                </div>
+
+                {% if feedback.order %}
+                <div class="feedback-order">
+                    <strong>Related Order:</strong> {{ feedback.order.dress_type }} - {{ feedback.order.status }}
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        {% if page_obj.has_other_pages %}
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page=1" class="page-link">First</a>
+                <a href="?page={{ page_obj.previous_page_number }}" class="page-link">Previous</a>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <span class="page-link current">{{ num }}</span>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                    <a href="?page={{ num }}" class="page-link">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" class="page-link">Next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}" class="page-link">Last</a>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        {% else %}
+        <div class="empty-state">
+            <i class="fas fa-comments"></i>
+            <h3>No Feedback Submitted</h3>
+
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<style>
+    .feedback-list {
+        padding: 60px 0;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .section-header h2 {
+        color: var(--text);
+        font-size: 28px;
+    }
+
+    .feedback-items {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .feedback-item {
+        background: var(--secondary);
+        border-radius: 10px;
+        padding: 25px;
+        border: var(--border);
+        transition: var(--transition);
+    }
+
+    .feedback-item:hover {
+        box-shadow: var(--shadow);
+        border-color: var(--accent);
+    }
+
+    .feedback-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .feedback-meta {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .rating {
+        display: flex;
+        gap: 2px;
+    }
+
+    .rating .filled {
+        color: #ffc107;
+    }
+
+    .rating i {
+        font-size: 16px;
+    }
+
+    .date, .order-ref {
+        color: var(--text-light);
+        font-size: 14px;
+    }
+
+    .feedback-content {
+        margin-bottom: 15px;
+    }
+
+    .feedback-content p {
+        color: var(--text);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .feedback-order {
+        padding: 10px 15px;
+        background: var(--primary-light);
+        border-radius: 5px;
+        font-size: 14px;
+        color: var(--text-light);
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+    .empty-state i {
+        font-size: 64px;
+        color: var(--accent);
+        margin-bottom: 20px;
+    }
+
+    .empty-state h3 {
+        color: var(--text);
+        margin-bottom: 10px;
+    }
+
+    .empty-state p {
+        color: var(--text-light);
+        margin-bottom: 30px;
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 40px;
+        flex-wrap: wrap;
+    }
+
+    .page-link {
+        padding: 8px 16px;
+        background: var(--secondary);
+        color: var(--text);
+        text-decoration: none;
+        border-radius: 5px;
+        border: var(--border);
+        transition: var(--transition);
+    }
+
+    .page-link:hover {
+        background: var(--accent);
+        color: var(--primary);
+    }
+
+    .page-link.current {
+        background: var(--accent);
+        color: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+        .feedback-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .feedback-meta {
+            gap: 10px;
+        }
+    }
+</style>
+
+
+            <!-- Sidebar -->
+            <div class="dashboard-sidebar">
+                <!-- Today's Schedule -->
+                <div class="feature-card" style="text-align: left; padding: 30px;">
+                    <div class="card-header" style="margin-bottom: 25px; padding-bottom: 15px; border-bottom: var(--border);">
+                        <h3 style="margin: 0; color: var(--text); font-size: 1.5rem;">Today's Schedule</h3>
+                    </div>
+
+                    <div class="schedule-list">
+                        <div class="schedule-item">
+                            <div class="schedule-time">9:00 AM</div>
+                            <div class="schedule-details">
+                                <strong>Fitting Appointment</strong>
+                                <p>Robert Chen - Suit</p>
+                            </div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">12:00 PM</div>
+                            <div class="schedule-details">
+                                <strong>Fabric Delivery</strong>
+                                <p>Silk for order #0876</p>
+                            </div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">3:30 PM</div>
+                            <div class="schedule-details">
+                                <strong>Quality Check</strong>
+                                <p>Order #0854 Inspection</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Tools -->
+                <div class="feature-card" style="text-align: left; padding: 30px; margin-top: 30px;">
+                    <div class="card-header" style="margin-bottom: 25px; padding-bottom: 15px; border-bottom: var(--border);">
+                        <h3 style="margin: 0; color: var(--text); font-size: 1.5rem;">Quick Tools</h3>
+                    </div>
+
+                    <div class="tools-grid">
+                        <a href="{% url 'customers:view' %}" class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-ruler"></i>
+                            </div>
+                            <div class="tool-info">
+                                <h4>Feedback</h4>
+                                <p>Access measurement utilities</p>
+                            </div>
+                        </a>
+                        <a href="#" class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-list-check"></i>
+                            </div>
+                            <div class="tool-info">
+                                <h4>Task List</h4>
+                                <p>Manage your daily tasks</p>
+                            </div>
+                        </a>
+                        <a href="#" class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-calendar-days"></i>
+                            </div>
+                            <div class="tool-info">
+                                <h4>My Schedule</h4>
+                                <p>View your calendar</p>
+                            </div>
+                        </a>
+                        <a href="#" class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="tool-info">
+                                <h4>Performance</h4>
+                                <p>Track your metrics</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Dashboard Layout */
+    .dashboard-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 30px;
+    }
+
+    .dashboard-main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dashboard-sidebar {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Table Styles */
+    .table-container {
+        overflow-x: auto;
+    }
+
+    .dashboard-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .dashboard-table th {
+        background: var(--primary-light);
+        color: var(--text);
+        font-weight: 600;
+        padding: 15px 12px;
+        text-align: left;
+        border-bottom: var(--border);
+    }
+
+    .dashboard-table td {
+        padding: 15px 12px;
+        border-bottom: var(--border);
+        color: var(--text-light);
+    }
+
+    .dashboard-table tr:hover {
+        background: var(--primary-light);
+    }
+
+    /* Status Badges */
+    .status-badge {
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+
+    .status-pending { background: var(--warning); color: var(--primary); }
+    .status-in-progress { background: var(--accent); color: var(--primary); }
+    .status-completed { background: var(--success); color: white; }
+    .status-delivered { background: var(--secondary); color: white; }
+
+    /* Action Dropdown */
+    .action-dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        background: var(--secondary);
+        border: var(--border);
+        border-radius: 8px;
+        padding: 8px 0;
+        min-width: 180px;
+        z-index: 1000;
+        box-shadow: var(--shadow);
+    }
+
+    .action-dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-item {
+        display: block;
+        padding: 8px 16px;
+        color: var(--text);
+        text-decoration: none;
+        transition: var(--transition);
+    }
+
+    .dropdown-item:hover {
+        background: var(--accent);
+        color: var(--primary);
+    }
+
+    /* Feedback Styles */
+    .feedback-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .feedback-item {
+        display: flex;
+        gap: 15px;
+        padding: 15px 0;
+        border-bottom: var(--border);
+    }
+
+    .feedback-item:last-child {
+        border-bottom: none;
+    }
+
+    .feedback-avatar {
+        width: 50px;
+        height: 50px;
+        background: var(--primary-light);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: var(--accent);
+        flex-shrink: 0;
+    }
+
+    .feedback-header {
+        display: flex;
+        justify-content: between;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    .feedback-header h4 {
+        margin: 0;
+        color: var(--text);
+        font-size: 1rem;
+    }
+
+    .stars {
+        display: flex;
+        gap: 2px;
+    }
+
+    .stars .filled {
+        color: #fbbf24;
+    }
+
+    .stars .empty {
+        color: var(--text-light);
+    }
+
+    .feedback-comment {
+        margin: 0 0 8px 0;
+        color: var(--text-light);
+        line-height: 1.5;
+    }
+
+    .feedback-meta {
+        color: var(--text-dark);
+        font-size: 0.8rem;
+    }
+
+    /* Schedule Styles */
+    .schedule-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .schedule-item {
+        display: flex;
+        gap: 15px;
+        padding: 12px 0;
+        border-bottom: var(--border);
+    }
+
+    .schedule-item:last-child {
+        border-bottom: none;
+    }
+
+    .schedule-time {
+        width: 80px;
+        font-weight: 600;
+        color: var(--accent);
+        flex-shrink: 0;
+    }
+
+    .schedule-details strong {
+        color: var(--text);
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    .schedule-details p {
+        margin: 0;
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+
+    /* Tools Grid */
+    .tools-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .tool-card {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 15px;
+        background: var(--primary-light);
+        border-radius: 10px;
+        text-decoration: none;
+        transition: var(--transition);
+        border: var(--border);
+    }
+
+    .tool-card:hover {
+        background: var(--accent);
+        transform: translateY(-2px);
+    }
+
+    .tool-card:hover .tool-icon {
+        background: var(--primary);
+        color: var(--accent);
+    }
+
+    .tool-card:hover h4,
+    .tool-card:hover p {
+        color: var(--primary);
+    }
+
+    .tool-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--secondary);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        color: var(--accent);
+        transition: var(--transition);
+    }
+
+    .tool-info h4 {
+        margin: 0 0 4px 0;
+        color: var(--text);
+        font-size: 1rem;
+    }
+
+    .tool-info p {
+        margin: 0;
+        color: var(--text-light);
+        font-size: 0.8rem;
+    }
+
+    /* Empty States */
+    .no-orders, .no-feedback {
+        text-align: center;
+        padding: 40px 20px;
+        color: var(--text-light);
+    }
+
+    .no-orders p, .no-feedback p {
+        margin: 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .dashboard-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .dashboard-sidebar {
+            order: -1;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-content {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .hero-image {
+            justify-content: center !important;
+            margin-top: 30px;
+        }
+
+        .table-container {
+            font-size: 0.9rem;
+        }
+
+        .dashboard-table th,
+        .dashboard-table td {
+            padding: 10px 8px;
+        }
+    }
+</style>
+{% endblock %}

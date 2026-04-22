@@ -1,0 +1,52 @@
+
+
+
+{% extends "base.html" %}
+{% block title %}Measurement Details{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h2 class="mb-4 text-capitalize">{{ measurement.dress_type.name }} - Details</h2>
+
+    <div class="card mx-auto shadow-sm" style="max-width: 500px; border-radius: 10px;">
+        <div class="card-body">
+
+            <!-- Color and Quantity Section -->
+            <div class="mb-4">
+                <p><strong>Color:</strong>
+                    {% if measurement.color %}
+                        <span style="display:inline-block;width:20px;height:20px;
+                                    background-color:{{ measurement.color|lower }};
+                                    border:1px solid #ccc;border-radius:50%;
+                                    vertical-align:middle;margin-right:6px;">
+                        </span>
+                        {{ measurement.color }}
+                    {% else %}
+                        N/A
+                    {% endif %}
+                </p>
+                <p><strong>Quantity:</strong> {{ measurement.quantity|default:"1" }}</p>
+            </div>
+
+            <!-- Measurements -->
+            <ul class="list-group text-start">
+                {% for field, value in measurement.get_measurements_list %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <strong>{{ field|title }}</strong>
+                        <span>{{ value }} cm</span>
+                    </li>
+                {% empty %}
+                    <li class="list-group-item text-muted">No measurements available.</li>
+                {% endfor %}
+            </ul>
+
+            <!-- Back Button -->
+            <div class="mt-4">
+                <a href="{% url 'orders:measurement_list' %}" class="btn btn-primary" style="background-color: purple; border: none;">
+                    Back
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load custom_filters %}
+
+{% block title %}Edit Measurement{% endblock %}
+
+{% block content %}
+<h3 class="mb-3">Edit Measurement</h3>
+
+<form method="POST" id="measurementForm">
+    {% csrf_token %}
+
+
+    <div class="mb-3">
+        <label for="id_dress_type" class="form-label"><strong>Dress Type:</strong></label>
+        {{ form.dress_type }}
+    </div>
+
+    <h5>Enter measurements in centimeters:</h5>
+
+    <div class="mb-3">
+        <label for="id_color" class="form-label">Color</label>
+        {{ form.color }}
+        {% if form.color.errors %}
+            <div class="text-danger">{{ form.color.errors }}</div>
+        {% endif %}
+    </div>
+
+
+
+
+    <div id="measurementFields">
+        {% for field_name in measurement.dress_type.required_fields %}
+            {% with field=form|get_field:field_name %}
+                {% if field %}
+                    <div class="mb-3">
+                        <label for="id_{{ field_name }}" class="form-label">{{ field_name|title }}</label>
+                        {{ field }}
+                        {% if field.errors %}
+                            <div class="text-danger">{{ field.errors }}</div>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+        {% endfor %}
+
+    </div>
+
+    <div class="d-flex gap-2 mt-3">
+        <button type="submit" class="btn btn-primary">Update Measurement</button>
+        <a href="{% url 'orders:measurement_list' %}" class="btn btn-secondary">Cancel</a>
+        <a href="{% url 'orders:measurement_delete' measurement.id %}" class="btn btn-outline-danger ms-auto">Delete</a>
+    </div>
+</form>
+
+
+<script>
+document.getElementById("id_dress_type").addEventListener("change", function() {
+    const dressTypeId = this.value;
+    fetch(`/orders/get-fields/${dressTypeId}/`)  // <-- create this endpoint
+        .then(response => response.json())
+        .then(data => {
+            const fieldsContainer = document.getElementById("measurementFields");
+            fieldsContainer.innerHTML = "";
+            data.required_fields.forEach(field_name => {
+                fieldsContainer.innerHTML += `
+                    <div class="mb-3">
+                        <label for="id_${field_name}" class="form-label">${field_name}</label>
+                        <input type="text" name="${field_name}" id="id_${field_name}" class="form-control" />
+                    </div>
+                `;
+            });
+        });
+});
+</script>
+{% endblock %}

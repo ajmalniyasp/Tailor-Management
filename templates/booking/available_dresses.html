@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h3 class="mt-5">Available Dress</h3>
+<div class="row mt-3">
+    {% for dress in dresses %}
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ dress.name }}</h5>
+                <p class="card-text">{{ dress.description }}</p>
+                <h4>${{ dress.price }}</h4>
+                <a href="{% url 'book_dress' dress.auto_id %}" class="btn btn-dark">Book Now</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>No dresses available right now.</p>
+    {% endfor %}
+</div>
+{% endblock %}

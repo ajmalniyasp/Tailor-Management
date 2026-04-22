@@ -1,0 +1,260 @@
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+<style>
+  /* ----------- Global Styling ----------- */
+  body {
+    font-family: "Inter", "Segoe UI", sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+    margin: 0;
+    padding: 0;
+  }
+
+  .edit-profile-card {
+    max-width: 900px;
+    margin: 60px auto;
+    background: #ffffff;
+    padding: 40px 50px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    animation: fadeIn 0.5s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .edit-profile-card h2 {
+    font-size: 1.8rem;
+    color: #0f172a;
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 3px solid #2563eb;
+    display: inline-block;
+    padding-bottom: 8px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e3a8a;
+    margin-bottom: 10px;
+    border-left: 4px solid #2563eb;
+    padding-left: 10px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group.full-width {
+    grid-column: 1 / -1;
+  }
+
+  .form-group label {
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    background-color: #f9fafb;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  }
+
+  /* ----------- Buttons Row ----------- */
+  .button-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 20px;
+  }
+
+  .back-btn,
+  button[type="submit"] {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    padding: 10px 18px;
+    font-weight: 500;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .back-btn {
+    background: #e2e8f0;
+    color: #1e293b;
+    border: none;
+  }
+
+  .back-btn:hover {
+    background: #cbd5e1;
+  }
+
+  button[type="submit"] {
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+  }
+
+  button[type="submit"]:hover {
+    background: #1d4ed8;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+  }
+
+  /* ----------- File Inputs ----------- */
+  input[type="file"] {
+    padding: 8px;
+    border: 1px dashed #94a3b8;
+    background: #f1f5f9;
+    cursor: pointer;
+  }
+
+  input[type="file"]:hover {
+    background: #e2e8f0;
+  }
+
+  /* ----------- Responsive ----------- */
+  @media (max-width: 768px) {
+    .edit-profile-card {
+      padding: 25px 20px;
+    }
+
+    .edit-profile-card h2 {
+      font-size: 1.5rem;
+    }
+
+    .button-row {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .back-btn, button[type="submit"] {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+
+<div class="edit-profile-card">
+    <h2>Edit Profile</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <h3>User Info</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="id_first_name">First Name</label>
+                {{ user_form.first_name }}
+            </div>
+            <div class="form-group">
+                <label for="id_last_name">Last Name</label>
+                {{ user_form.last_name }}
+            </div>
+            <div class="form-group full-width">
+                <label for="id_email">Email</label>
+                {{ user_form.email }}
+            </div>
+        </div>
+
+        <h3>Profile Info</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="id_address_line_1">Address Line 1</label>
+                {{ profile_form.address_line_1 }}
+            </div>
+            <div class="form-group">
+                <label for="id_address_line_2">Address Line 2</label>
+                {{ profile_form.address_line_2 }}
+            </div>
+            <div class="form-group">
+                <label for="id_address_line_3">Address Line 3</label>
+                {{ profile_form.address_line_3 }}
+            </div>
+            <div class="form-group">
+                <label for="id_district">District</label>
+                {{ profile_form.district }}
+            </div>
+            <div class="form-group">
+                <label for="id_state">State</label>
+                {{ profile_form.state }}
+            </div>
+            <div class="form-group">
+                <label for="id_country">Country</label>
+                {{ profile_form.country }}
+            </div>
+            <div class="form-group">
+                <label for="id_zip_code">ZIP Code</label>
+                {{ profile_form.zip_code }}
+            </div>
+            <div class="form-group">
+                <label for="id_is_organization">Organization</label>
+                {{ profile_form.is_organization }}
+            </div>
+            <div class="form-group">
+                <label for="id_organization_name">Organization Name</label>
+                {{ profile_form.organization_name }}
+            </div>
+            <div class="form-group full-width">
+                <label for="id_profile_image">Profile Image</label>
+                {{ profile_form.profile_image }}
+            </div>
+            <div class="form-group full-width">
+                <label for="id_cover_image">Cover Image</label>
+                {{ profile_form.cover_image }}
+            </div>
+        </div>
+
+        <div class="button-row">
+            <a href="{% url 'accounts:customer_profile' %}" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+            <button type="submit">
+                <i class="fas fa-save"></i> Save Changes
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

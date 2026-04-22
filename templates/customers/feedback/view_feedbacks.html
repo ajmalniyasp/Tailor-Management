@@ -1,0 +1,249 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}My Feedback - TailorPro{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>My <span>Feedback</span></h1>
+                <p>View all your submitted feedback and ratings.</p>
+                <div class="hero-buttons">
+                    <a href="{% url 'customers:submit' %}" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Submit New Feedback
+                    </a>
+                    <a href="{% url 'accounts:customer_dashboard' %}" class="btn btn-outline">
+                        <i class="fas fa-arrow-left"></i> Back to Dashboard
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="feedback-list">
+    <div class="container">
+        <div class="section-header">
+            <h2>Feedback History ({{ feedback_count }})</h2>
+        </div>
+
+        {% if page_obj %}
+        <div class="feedback-items">
+            {% for feedback in page_obj %}
+            <div class="feedback-item">
+                <div class="feedback-header">
+                    <div class="feedback-meta">
+                        <div class="rating">
+                            {% for i in "12345" %}
+                                {% if forloop.counter <= feedback.rating %}
+                                    <i class="fas fa-star filled"></i>
+                                {% else %}
+                                    <i class="far fa-star"></i>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <span class="date">{{ feedback.created_at|date:"M d, Y" }}</span>
+                        {% if feedback.order %}
+                        <span class="order-ref">Order: #{{ feedback.order.id }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="feedback-content">
+                    <p>{{ feedback.comments }}</p>
+                </div>
+
+                {% if feedback.order %}
+                <div class="feedback-order">
+                    <strong>Related Order:</strong> {{ feedback.order.dress_type }} - {{ feedback.order.status }}
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        {% if page_obj.has_other_pages %}
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page=1" class="page-link">First</a>
+                <a href="?page={{ page_obj.previous_page_number }}" class="page-link">Previous</a>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <span class="page-link current">{{ num }}</span>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                    <a href="?page={{ num }}" class="page-link">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" class="page-link">Next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}" class="page-link">Last</a>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        {% else %}
+        <div class="empty-state">
+            <i class="fas fa-comments"></i>
+            <h3>No Feedback Submitted</h3>
+            <p>You haven't submitted any feedback yet. Share your experience with us!</p>
+            <a href="{% url 'customers:submit' %}" class="btn btn-primary">
+                <i class="fas fa-plus"></i> Submit Your First Feedback
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<style>
+    .feedback-list {
+        padding: 60px 0;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    .section-header h2 {
+        color: var(--text);
+        font-size: 28px;
+    }
+
+    .feedback-items {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .feedback-item {
+        background: var(--secondary);
+        border-radius: 10px;
+        padding: 25px;
+        border: var(--border);
+        transition: var(--transition);
+    }
+
+    .feedback-item:hover {
+        box-shadow: var(--shadow);
+        border-color: var(--accent);
+    }
+
+    .feedback-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .feedback-meta {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .rating {
+        display: flex;
+        gap: 2px;
+    }
+
+    .rating .filled {
+        color: #ffc107;
+    }
+
+    .rating i {
+        font-size: 16px;
+    }
+
+    .date, .order-ref {
+        color: var(--text-light);
+        font-size: 14px;
+    }
+
+    .feedback-content {
+        margin-bottom: 15px;
+    }
+
+    .feedback-content p {
+        color: var(--text);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .feedback-order {
+        padding: 10px 15px;
+        background: var(--primary-light);
+        border-radius: 5px;
+        font-size: 14px;
+        color: var(--text-light);
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+    .empty-state i {
+        font-size: 64px;
+        color: var(--accent);
+        margin-bottom: 20px;
+    }
+
+    .empty-state h3 {
+        color: var(--text);
+        margin-bottom: 10px;
+    }
+
+    .empty-state p {
+        color: var(--text-light);
+        margin-bottom: 30px;
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 40px;
+        flex-wrap: wrap;
+    }
+
+    .page-link {
+        padding: 8px 16px;
+        background: var(--secondary);
+        color: var(--text);
+        text-decoration: none;
+        border-radius: 5px;
+        border: var(--border);
+        transition: var(--transition);
+    }
+
+    .page-link:hover {
+        background: var(--accent);
+        color: var(--primary);
+    }
+
+    .page-link.current {
+        background: var(--accent);
+        color: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+        .feedback-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .feedback-meta {
+            gap: 10px;
+        }
+    }
+</style>
+{% endblock %}

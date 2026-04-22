@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Dress Types{% endblock %}
+
+{% block content %}
+<h2 class="page-title">Dress Types</h2>
+
+<div class="actions">
+     {% if user.role == 3 %}
+    <a href="{% url 'dresstype_create' %}" class="btn btn-primary">Add Dress Type</a>
+    <input type="text" id="searchInput" class="search-bar" placeholder="Search dress type...">
+    {% endif %}
+</div>
+
+<div class="dress-type-container">
+    {% for dt in dress_types %}
+    <div class="dress-card">
+        <!-- ✅ Dress Image Section -->
+        {% if dt.image %}
+            <img src="{{ dt.image.url }}" alt="{{ dt.name }}" class="dress-image">
+        {% else %}
+            <img src="{% static 'images/default_dress.jpg' %}" alt="No Image" class="dress-image">
+        {% endif %}
+
+        <h3 class="dress-name">{{ dt.name }}</h3>
+        <p class="dress-desc">{{ dt.description|default:"No description available." }}</p>
+        <p class="dress-price"><strong>Price:</strong> ${{ dt.price|default:"0.00" }}</p>
+
+        <div class="card-actions">
+            {% if user.role == 3 %}
+                <a href="{% url 'dresstype_update' dt.id %}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="{% url 'dresstype_delete' dt.id %}" class="btn btn-danger btn-sm">Delete</a>
+            {% else %}
+                <a href="{% url 'book_dress' dt.auto_id %}" class="btn btn-danger btn-sm">Book Now</a>
+            {% endif %}
+        </div>
+    </div>
+    {% empty %}
+    <p>No dress types found.</p>
+    {% endfor %}
+</div>
+
+<style>
+    .page-title {
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+
+    .actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .search-bar {
+        width: 250px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        transition: all 0.3s;
+    }
+
+    .search-bar:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0,123,255,0.5);
+        outline: none;
+    }
+
+    .dress-type-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .dress-card {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .dress-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    /* ✅ Dress Image Style */
+    .dress-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+
+    .dress-name {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .dress-desc {
+        color: #555;
+        margin: 10px 0 15px;
+        min-height: 40px;
+    }
+
+    .dress-price {
+        color: #000;
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
+
+    .card-actions {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .btn-sm {
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 0.9rem;
+    }
+</style>
+
+<script>
+    // 🔍 Simple Search Filter
+    document.getElementById("searchInput").addEventListener("keyup", function() {
+        const query = this.value.toLowerCase();
+        const cards = document.querySelectorAll(".dress-card");
+
+        cards.forEach(card => {
+            const name = card.querySelector(".dress-name").textContent.toLowerCase();
+            card.style.display = name.includes(query) ? "block" : "none";
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,46 @@
+INFO     2025-09-09 10:12:00,724 0.0.0.0 django.utils.autoreload autoreload autoreload.py 667 run_with_reloader Watching for file changes with StatReloader
+INFO     2025-09-09 10:12:03,262 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET / HTTP/1.1" 302 0
+INFO     2025-09-09 10:12:03,290 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /login/ HTTP/1.1" 200 1806
+INFO     2025-09-09 10:12:03,354 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-09 10:12:03,355 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 304 0
+WARNING  2025-09-09 10:12:03,468 0.0.0.0 django.request log log.py 248 log_response Not Found: /favicon.ico
+WARNING  2025-09-09 10:12:03,469 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /favicon.ico HTTP/1.1" 404 5221
+INFO     2025-09-09 11:58:18,808 0.0.0.0 django.utils.autoreload autoreload autoreload.py 667 run_with_reloader Watching for file changes with StatReloader
+INFO     2025-09-09 06:58:03,022 0.0.0.0 django.utils.autoreload autoreload autoreload.py 667 run_with_reloader Watching for file changes with StatReloader
+INFO     2025-09-09 06:58:43,188 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET / HTTP/1.1" 302 0
+INFO     2025-09-09 06:58:43,956 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /login/ HTTP/1.1" 200 1806
+INFO     2025-09-09 06:58:44,740 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 200 2560
+INFO     2025-09-09 06:58:45,097 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 200 1304
+WARNING  2025-09-09 06:58:45,847 0.0.0.0 django.request log log.py 248 log_response Not Found: /favicon.ico
+WARNING  2025-09-09 06:58:45,848 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /favicon.ico HTTP/1.1" 404 5255
+INFO     2025-09-09 07:17:11,497 0.0.0.0 django.utils.autoreload autoreload autoreload.py 667 run_with_reloader Watching for file changes with StatReloader
+INFO     2025-09-09 07:17:24,323 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET / HTTP/1.1" 302 0
+INFO     2025-09-09 07:17:24,901 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /login/ HTTP/1.1" 200 1806
+INFO     2025-09-09 07:17:25,532 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 200 2560
+INFO     2025-09-09 07:17:25,820 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 200 1304
+WARNING  2025-09-09 07:17:26,379 0.0.0.0 django.request log log.py 248 log_response Not Found: /favicon.ico
+WARNING  2025-09-09 07:17:26,380 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /favicon.ico HTTP/1.1" 404 5255
+WARNING  2025-09-09 07:17:33,618 0.0.0.0 django.security.csrf log log.py 248 log_response Forbidden (Origin checking failed - https://8000--main--riya--riya--1vkkvat660jk0.pit-1.try.coder.app does not match any trusted origins.): /login/
+WARNING  2025-09-09 07:17:33,620 0.0.0.0 django.server basehttp basehttp.py 213 log_message "POST /login/ HTTP/1.1" 403 2598
+INFO     2025-09-09 09:32:38,811 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET / HTTP/1.1" 302 0
+INFO     2025-09-09 09:32:39,491 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /login/ HTTP/1.1" 200 1806
+INFO     2025-09-09 09:32:40,332 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-09 09:32:40,645 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 304 0
+WARNING  2025-09-09 09:32:57,855 0.0.0.0 django.security.csrf log log.py 248 log_response Forbidden (Origin checking failed - https://8000--main--riya--riya--1vkkvat660jk0.pit-1.try.coder.app does not match any trusted origins.): /login/
+WARNING  2025-09-09 09:32:57,857 0.0.0.0 django.server basehttp basehttp.py 213 log_message "POST /login/ HTTP/1.1" 403 2598
+INFO     2025-09-09 09:33:18,219 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /login/ HTTP/1.1" 200 1806
+INFO     2025-09-09 09:33:18,957 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 304 0
+INFO     2025-09-09 09:33:18,961 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-09 09:33:32,412 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+WARNING  2025-09-09 09:33:52,624 0.0.0.0 django.security.csrf log log.py 248 log_response Forbidden (Origin checking failed - https://8000--main--riya--riya--1vkkvat660jk0.pit-1.try.coder.app does not match any trusted origins.): /login/
+WARNING  2025-09-09 09:33:52,626 0.0.0.0 django.server basehttp basehttp.py 213 log_message "POST /login/ HTTP/1.1" 403 2598
+INFO     2025-09-09 09:40:56,987 0.0.0.0 django.utils.autoreload autoreload autoreload.py 667 run_with_reloader Watching for file changes with StatReloader
+INFO     2025-09-09 09:41:04,242 0.0.0.0 django.utils.autoreload autoreload autoreload.py 667 run_with_reloader Watching for file changes with StatReloader
+INFO     2025-09-09 09:41:07,365 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET / HTTP/1.1" 302 0
+INFO     2025-09-09 09:41:08,157 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /login/ HTTP/1.1" 200 1806
+INFO     2025-09-09 09:41:08,817 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 200 2560
+INFO     2025-09-09 09:41:09,093 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 200 1304
+WARNING  2025-09-09 09:41:09,768 0.0.0.0 django.request log log.py 248 log_response Not Found: /favicon.ico
+WARNING  2025-09-09 09:41:09,770 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /favicon.ico HTTP/1.1" 404 5266
+WARNING  2025-09-09 09:41:34,936 0.0.0.0 django.security.csrf log log.py 248 log_response Forbidden (Origin checking failed - https://8000--main--niyastailoring--niyas--1vkkvat660jk0.pit-1.try.coder.app does not match any trusted origins.): /login/
+WARNING  2025-09-09 09:41:34,938 0.0.0.0 django.server basehttp basehttp.py 213 log_message "POST /login/ HTTP/1.1" 403 2609

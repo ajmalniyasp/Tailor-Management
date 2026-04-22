@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h3>Feedback for Order {{ order.id }}</h3>
+
+    {% if feedbacks %}
+        <ul class="list-group mt-3">
+            {% for fb in feedbacks %}
+                <li class="list-group-item">
+                    <strong>{{ fb.customer.username }}:</strong>
+                    <p>{{ fb.message }}</p>
+                    <small class="text-muted">{{ fb.created_at }}</small>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="alert alert-info mt-3">No feedback yet for this order.</div>
+    {% endif %}
+
+    <a href="{% url 'staff_dashboard' %}" class="btn btn-secondary mt-3">← Back to Dashboard</a>
+</div>
+{% endblock %}

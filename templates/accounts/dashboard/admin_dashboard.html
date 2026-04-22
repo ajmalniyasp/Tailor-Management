@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+<p>Welocme, {{ request.user.first_name }} (Admin) </p>
+<ul>
+    <li><a href="#">Manage Users</a></li>
+    <li><a href="#">View Reports</a></li>
+    <li><a href="#">System Settings</a></li>
+</ul>
+{% endblock %}

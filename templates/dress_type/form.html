@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Add / Edit Dress Type{% endblock %}
+{% block content %}
+<h2>Add / Edit Dress Type</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-success">Save</button>
+</form>
+{% endblock %}

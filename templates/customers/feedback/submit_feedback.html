@@ -1,0 +1,540 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Submit Feedback - TailorPro{% endblock %}
+
+{% block content %}
+<!-- Feedback Page Header -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Share Your <span>Feedback</span></h1>
+                <p>We value your opinion and are committed to providing the best tailoring experience. Your feedback helps us improve our services.</p>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-placeholder">
+                    <div style="text-align: center;">
+                        <i class="fas fa-comments" style="font-size: 80px; margin-bottom: 20px; color: var(--accent);"></i>
+                        <h3>Your Voice Matters</h3>
+                        <p>Help Us Serve You Better</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Feedback Form Section -->
+<section class="feedback-form-section">
+    <div class="container">
+        <div class="feedback-form-container">
+            <div class="feedback-form-card">
+                <div class="form-header">
+                    <h2>Tell Us About Your Experience</h2>
+                    <p>Please select an order and share your feedback</p>
+                </div>
+
+                {% if error %}
+                <div class="alert alert-error">
+                    <i class="fas fa-exclamation-circle"></i>
+                    {{ error }}
+                </div>
+                {% endif %}
+
+                {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        <i class="fas fa-{% if message.tags == 'success' %}check-circle{% else %}exclamation-circle{% endif %}"></i>
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+
+                <form method="post" class="feedback-form">
+                    {% csrf_token %}
+
+                    <!-- Order Selection Field -->
+                    <div class="form-group">
+                        <label for="id_order">Select Order *</label>
+                        <div class="rating-select-container">
+                            {{ form.order }}
+                            <i class="fas fa-chevron-down select-arrow"></i>
+                        </div>
+                        {% if form.order.errors %}
+                        <div class="error-message">
+                            {% for error in form.order.errors %}
+                            <i class="fas fa-exclamation-circle"></i> {{ error }}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        <div class="form-text">
+                            Choose the specific order you want to provide feedback for
+                        </div>
+                    </div>
+
+                    <!-- Rating Field -->
+                    <div class="form-group">
+                        <label for="id_rating">Overall Rating *</label>
+                        <div class="rating-select-container">
+                            {{ form.rating }}
+                            <i class="fas fa-chevron-down select-arrow"></i>
+                        </div>
+                        {% if form.rating.errors %}
+                        <div class="error-message">
+                            {% for error in form.rating.errors %}
+                            <i class="fas fa-exclamation-circle"></i> {{ error }}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Comments Field -->
+                    <div class="form-group">
+                        <label for="id_comments">Your Feedback *</label>
+                        {{ form.comments }}
+                        {% if form.comments.errors %}
+                        <div class="error-message">
+                            {% for error in form.comments.errors %}
+                            <i class="fas fa-exclamation-circle"></i> {{ error }}
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                        <div class="char-count">
+                            <span id="charCount">0</span> characters
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-paper-plane"></i> Submit Feedback
+                        </button>
+                        <a href="{% url 'accounts:customer_dashboard' %}" class="btn btn-outline">
+                            <i class="fas fa-arrow-left"></i> Back to Dashboard
+                        </a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Side Info -->
+            <div class="feedback-info">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3>Order-Specific Feedback</h3>
+                    <p>Select the specific order you want to provide feedback for. This helps us understand your experience better.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Your Feedback is Secure</h3>
+                    <p>We treat your feedback with confidentiality and use it solely to improve our services.</p>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>We Listen</h3>
+                    <p>Every piece of feedback is reviewed by our team and helps us grow.</p>
+                </div>
+
+              <!-- Available Orders Section -->
+                {% if available_orders %}
+                <div class="info-card available-orders-card">
+                    <div class="info-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h3>Your Available Orders</h3>
+                    <div class="available-orders-list">
+                        {% for order_data in available_orders %}
+                        <div class="order-item">
+                            <div class="order-details">
+                                <strong>{{ order_data.display_text }}</strong>
+                                <span class="order-type">
+                                    Quantity: {{ order_data.order.quantity }}
+                                </span>
+                                {% if order_data.order.dress_type and order_data.order.dress_type.price %}
+                                <span class="order-price">₹{{ order_data.order.dress_type.price }}</span>
+                                {% endif %}
+                            </div>
+                            <a href="{% url 'customers:submit' %}?order_id={{ order_data.order.id }}"
+                               class="btn-select-order">
+                                Select
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Feedback Form Section Styles */
+    .feedback-form-section {
+        padding: 80px 0;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    }
+
+    .feedback-form-container {
+        display: flex;
+        gap: 40px;
+        align-items: flex-start;
+    }
+
+    .feedback-form-card {
+        flex: 2;
+        background: var(--secondary);
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+        border: var(--border);
+        position: relative;
+    }
+
+    .feedback-form-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: var(--accent);
+    }
+
+    .form-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .form-header h2 {
+        color: var(--text);
+        margin-bottom: 10px;
+        font-size: 28px;
+    }
+
+    .form-header p {
+        color: var(--text-light);
+        font-size: 16px;
+    }
+
+    .alert {
+        padding: 15px 20px;
+        background: rgba(220, 53, 69, 0.1);
+        border: 1px solid rgba(220, 53, 69, 0.3);
+        border-radius: 8px;
+        margin-bottom: 25px;
+        color: #f8d7da;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .alert.alert-success {
+        background: rgba(40, 167, 69, 0.1);
+        border-color: rgba(40, 167, 69, 0.3);
+        color: #d4edda;
+    }
+
+    .alert.alert-warning {
+        background: rgba(255, 193, 7, 0.1);
+        border-color: rgba(255, 193, 7, 0.3);
+        color: #fff3cd;
+    }
+
+    .alert i {
+        color: inherit;
+    }
+
+    .feedback-form {
+        width: 100%;
+    }
+
+    .form-group {
+        margin-bottom: 30px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: var(--text);
+        font-size: 16px;
+    }
+
+    .rating-select-container {
+        position: relative;
+        width: 100%;
+    }
+
+    .form-select {
+        width: 100%;
+        padding: 15px 20px;
+        border: 1px solid #333;
+        border-radius: 8px;
+        background: var(--primary-light);
+        color: var(--text);
+        font-size: 15px;
+        transition: var(--transition);
+        appearance: none;
+        cursor: pointer;
+    }
+
+    .select-arrow {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-light);
+        pointer-events: none;
+    }
+
+    .form-select:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 2px rgba(187, 134, 252, 0.2);
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 15px 20px;
+        border: 1px solid #333;
+        border-radius: 8px;
+        background: var(--primary-light);
+        color: var(--text);
+        font-family: inherit;
+        resize: vertical;
+        transition: var(--transition);
+        min-height: 120px;
+    }
+
+    .form-control:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 2px rgba(187, 134, 252, 0.2);
+    }
+
+    .form-control::placeholder {
+        color: var(--text-dark);
+    }
+
+    .form-text {
+        color: var(--text-light);
+        font-size: 14px;
+        margin-top: 8px;
+        font-style: italic;
+    }
+
+    .char-count {
+        text-align: right;
+        color: var(--text-light);
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    .error-message {
+        color: #f8d7da;
+        font-size: 14px;
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .form-actions {
+        display: flex;
+        gap: 15px;
+        margin-top: 40px;
+    }
+
+    .form-actions .btn {
+        flex: 1;
+    }
+
+    .feedback-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .info-card {
+        background: var(--secondary);
+        padding: 25px;
+        border-radius: 10px;
+        border: var(--border);
+        transition: var(--transition);
+    }
+
+    .info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow);
+        border-color: var(--accent);
+    }
+
+    .info-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--accent);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
+        color: var(--primary);
+        font-size: 20px;
+    }
+
+    .info-card h3 {
+        color: var(--text);
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    .info-card p {
+        color: var(--text-light);
+        font-size: 14px;
+        margin: 0;
+    }
+
+    /* Available Orders Styles */
+    .available-orders-card {
+        background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary) 100%);
+        border: 2px solid var(--accent);
+    }
+
+    .available-orders-list {
+        margin-top: 15px;
+    }
+
+    .order-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        border-bottom: 1px solid #333;
+    }
+
+    .order-item:last-child {
+        border-bottom: none;
+    }
+
+    .order-details {
+        flex: 1;
+    }
+
+    .order-details strong {
+        color: var(--text);
+        display: block;
+        font-size: 14px;
+    }
+
+    .order-type {
+        color: var(--text-light);
+        font-size: 12px;
+        display: block;
+        margin-top: 2px;
+    }
+
+    .order-date {
+        color: var(--text-dark);
+        font-size: 11px;
+        display: block;
+        margin-top: 2px;
+    }
+
+    .btn-select-order {
+        background: var(--accent);
+        color: var(--primary);
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: var(--transition);
+        cursor: pointer;
+    }
+
+    .btn-select-order:hover {
+        background: var(--accent-hover);
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+        .feedback-form-container {
+            flex-direction: column;
+        }
+
+        .feedback-form-card {
+            padding: 30px 20px;
+        }
+
+        .form-actions {
+            flex-direction: column;
+        }
+
+        .form-header h2 {
+            font-size: 24px;
+        }
+
+        .order-item {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .btn-select-order {
+            align-self: flex-end;
+        }
+    }
+</style>
+
+<script>
+    // Character count for comments textarea
+    document.addEventListener('DOMContentLoaded', function() {
+        const commentsTextarea = document.getElementById('id_comments');
+        const charCount = document.getElementById('charCount');
+
+        if (commentsTextarea && charCount) {
+            // Update character count on input
+            commentsTextarea.addEventListener('input', function() {
+                charCount.textContent = this.value.length;
+            });
+
+            // Initialize character count
+            charCount.textContent = commentsTextarea.value.length;
+        }
+
+        // Add focus styles dynamically to all select elements
+        const formSelects = document.querySelectorAll('.form-select');
+        formSelects.forEach(select => {
+            select.addEventListener('focus', function() {
+                this.style.borderColor = 'var(--accent)';
+                this.style.boxShadow = '0 0 0 2px rgba(187, 134, 252, 0.2)';
+            });
+
+            select.addEventListener('blur', function() {
+                this.style.borderColor = '#333';
+                this.style.boxShadow = 'none';
+            });
+        });
+
+        // Auto-select order if coming from direct link
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderId = urlParams.get('order_id');
+        if (orderId) {
+            const orderSelect = document.getElementById('id_order');
+            if (orderSelect) {
+                orderSelect.value = orderId;
+            }
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <div class="card shadow-sm p-4">
+    <h3>Book {{ dress.name }}</h3>
+    <p>{{ dress.description }}</p>
+    <h5>Price: ${{ dress.price }}</h5>
+
+    <form method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="quantity" class="form-label">Quantity</label>
+        {{ form.quantity }}
+      </div>
+      <button type="submit" class="btn btn-dark">Confirm Booking</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

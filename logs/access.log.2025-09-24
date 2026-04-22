@@ -1,0 +1,310 @@
+INFO     2025-09-24 12:12:06,960 0.0.0.0 django.utils.autoreload autoreload autoreload.py 667 run_with_reloader Watching for file changes with StatReloader
+INFO     2025-09-24 12:12:50,016 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET / HTTP/1.1" 302 0
+INFO     2025-09-24 12:12:50,110 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET / HTTP/1.1" 302 0
+INFO     2025-09-24 12:12:50,552 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /login/ HTTP/1.1" 200 1806
+INFO     2025-09-24 12:12:50,583 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 200 1349
+INFO     2025-09-24 12:12:50,583 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 200 2702
+INFO     2025-09-24 12:12:50,680 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /login/ HTTP/1.1" 200 1806
+INFO     2025-09-24 12:12:50,702 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 12:12:50,703 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 304 0
+WARNING  2025-09-24 12:12:50,720 0.0.0.0 django.request log log.py 248 log_response Not Found: /favicon.ico
+WARNING  2025-09-24 12:12:50,721 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /favicon.ico HTTP/1.1" 404 6194
+INFO     2025-09-24 12:13:26,229 0.0.0.0 django.server basehttp basehttp.py 213 log_message "POST /login/ HTTP/1.1" 200 1840
+INFO     2025-09-24 12:13:26,241 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 12:13:26,241 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 304 0
+INFO     2025-09-24 12:22:34,681 0.0.0.0 django.utils.autoreload autoreload autoreload.py 667 run_with_reloader Watching for file changes with StatReloader
+INFO     2025-09-24 12:22:39,108 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET / HTTP/1.1" 302 0
+INFO     2025-09-24 12:22:39,214 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /login/ HTTP/1.1" 200 1806
+INFO     2025-09-24 12:22:39,234 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 304 0
+INFO     2025-09-24 12:22:39,236 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+WARNING  2025-09-24 12:22:39,341 0.0.0.0 django.request log log.py 248 log_response Not Found: /favicon.ico
+WARNING  2025-09-24 12:22:39,341 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /favicon.ico HTTP/1.1" 404 6194
+INFO     2025-09-24 12:23:01,618 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET / HTTP/1.1" 302 0
+INFO     2025-09-24 12:23:01,666 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /login/ HTTP/1.1" 200 1806
+INFO     2025-09-24 12:23:01,694 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 304 0
+INFO     2025-09-24 12:23:01,696 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 12:23:04,275 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /register/ HTTP/1.1" 200 2785
+INFO     2025-09-24 12:23:04,287 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 12:23:04,287 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 304 0
+INFO     2025-09-24 12:23:47,488 0.0.0.0 django.server basehttp basehttp.py 213 log_message "POST /register/ HTTP/1.1" 200 2980
+INFO     2025-09-24 12:23:47,500 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 12:23:47,501 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 304 0
+INFO     2025-09-24 12:24:34,321 0.0.0.0 django.server basehttp basehttp.py 213 log_message "POST /register/ HTTP/1.1" 200 2922
+INFO     2025-09-24 12:24:34,335 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 12:24:34,335 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 304 0
+INFO     2025-09-24 12:25:58,505 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /login/ HTTP/1.1" 200 1806
+INFO     2025-09-24 12:25:58,520 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 12:25:58,520 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 304 0
+INFO     2025-09-24 12:27:33,983 0.0.0.0 django.server basehttp basehttp.py 213 log_message "POST /login/ HTTP/1.1" 200 1844
+INFO     2025-09-24 12:27:34,000 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 12:27:34,002 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 304 0
+INFO     2025-09-24 12:38:41,768 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /register/ HTTP/1.1" 200 2785
+INFO     2025-09-24 12:38:41,793 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 304 0
+INFO     2025-09-24 12:38:41,795 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 12:39:31,099 0.0.0.0 django.server basehttp basehttp.py 213 log_message "POST /register/ HTTP/1.1" 302 0
+INFO     2025-09-24 12:39:31,165 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /login/ HTTP/1.1" 200 1806
+INFO     2025-09-24 12:39:31,193 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 12:39:31,195 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:02:22,272 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET / HTTP/1.1" 302 0
+INFO     2025-09-24 15:02:23,025 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /login/ HTTP/1.1" 200 1806
+INFO     2025-09-24 15:02:23,161 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:02:23,175 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 304 0
+WARNING  2025-09-24 15:02:23,539 0.0.0.0 django.request log log.py 248 log_response Not Found: /favicon.ico
+WARNING  2025-09-24 15:02:23,540 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /favicon.ico HTTP/1.1" 404 6194
+INFO     2025-09-24 15:02:32,516 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /admin/ HTTP/1.1" 302 0
+INFO     2025-09-24 15:02:32,881 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4181
+INFO     2025-09-24 15:02:32,941 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/responsive.css HTTP/1.1" 200 16632
+INFO     2025-09-24 15:02:32,942 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/base.css HTTP/1.1" 200 22154
+INFO     2025-09-24 15:02:32,947 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+INFO     2025-09-24 15:02:32,961 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO     2025-09-24 15:02:32,961 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/login.css HTTP/1.1" 200 951
+INFO     2025-09-24 15:02:32,979 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO     2025-09-24 15:02:33,019 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO     2025-09-24 15:02:53,505 0.0.0.0 django.server basehttp basehttp.py 213 log_message "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO     2025-09-24 15:02:53,767 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /admin/ HTTP/1.1" 200 16239
+INFO     2025-09-24 15:02:53,945 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:02:53,946 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:02:53,946 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:02:53,946 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:02:53,947 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:02:53,952 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:02:53,959 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO     2025-09-24 15:02:54,050 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO     2025-09-24 15:02:54,056 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO     2025-09-24 15:03:02,176 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /admin/accounts/user/add/ HTTP/1.1" 200 20929
+INFO     2025-09-24 15:03:02,196 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:02,196 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:02,197 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:02,197 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:02,202 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:02,227 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/forms.css HTTP/1.1" 200 8525
+INFO     2025-09-24 15:03:02,240 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/unusable_password_field.css HTTP/1.1" 200 663
+INFO     2025-09-24 15:03:02,260 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/widgets.css HTTP/1.1" 200 11991
+INFO     2025-09-24 15:03:02,262 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO     2025-09-24 15:03:02,277 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO     2025-09-24 15:03:02,285 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+INFO     2025-09-24 15:03:02,291 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO     2025-09-24 15:03:02,301 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO     2025-09-24 15:03:02,319 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+INFO     2025-09-24 15:03:02,319 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO     2025-09-24 15:03:02,344 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO     2025-09-24 15:03:02,461 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO     2025-09-24 15:03:02,468 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:02,543 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+INFO     2025-09-24 15:03:02,570 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/unusable_password_field.js HTTP/1.1" 200 1480
+INFO     2025-09-24 15:03:02,704 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO     2025-09-24 15:03:15,429 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /admin/accounts/userprofile/ HTTP/1.1" 200 17258
+INFO     2025-09-24 15:03:15,448 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:15,450 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:15,450 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:15,451 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:15,451 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:15,458 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:15,460 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:15,460 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:15,461 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:15,466 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:15,468 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:15,469 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:15,470 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:15,472 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+INFO     2025-09-24 15:03:15,481 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO     2025-09-24 15:03:15,485 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:15,519 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO     2025-09-24 15:03:15,525 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO     2025-09-24 15:03:15,556 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO     2025-09-24 15:03:15,556 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO     2025-09-24 15:03:19,233 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /admin/accounts/user/ HTTP/1.1" 200 18927
+INFO     2025-09-24 15:03:19,244 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:19,248 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:19,248 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:19,252 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:19,252 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:19,253 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:19,253 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:19,256 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:19,259 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:19,259 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:19,260 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:19,261 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:19,264 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:19,265 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:19,265 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:19,270 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:19,273 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:19,361 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO     2025-09-24 15:03:19,427 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+INFO     2025-09-24 15:03:26,995 0.0.0.0 django.server basehttp basehttp.py 81 handle_error - Broken pipe from ('127.0.0.1', 61241)
+INFO     2025-09-24 15:03:28,974 0.0.0.0 django.server basehttp basehttp.py 81 handle_error - Broken pipe from ('127.0.0.1', 61238)
+INFO     2025-09-24 15:03:31,408 0.0.0.0 django.server basehttp basehttp.py 81 handle_error - Broken pipe from ('127.0.0.1', 61242)
+INFO     2025-09-24 15:03:32,308 0.0.0.0 django.server basehttp basehttp.py 81 handle_error - Broken pipe from ('127.0.0.1', 61240)
+INFO     2025-09-24 15:03:32,818 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /admin/accounts/user/f112ba02-bb86-4b79-b1a8-d30198964cf5/change/ HTTP/1.1" 200 31812
+INFO     2025-09-24 15:03:32,830 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:32,837 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:32,841 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:32,843 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:32,844 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:32,845 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:32,849 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:32,850 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:32,850 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:32,852 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:32,855 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:32,857 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:32,858 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:32,859 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:32,861 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:32,863 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:32,864 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:32,880 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 4530
+INFO     2025-09-24 15:03:32,905 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 15709
+INFO     2025-09-24 15:03:32,908 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:32,910 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:33,420 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO     2025-09-24 15:03:33,462 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:33,499 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+INFO     2025-09-24 15:03:43,958 0.0.0.0 django.server basehttp basehttp.py 213 log_message "POST /admin/accounts/user/f112ba02-bb86-4b79-b1a8-d30198964cf5/change/ HTTP/1.1" 302 0
+INFO     2025-09-24 15:03:44,194 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /admin/accounts/user/ HTTP/1.1" 200 19183
+INFO     2025-09-24 15:03:44,211 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:44,212 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:44,212 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:44,215 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:44,216 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:44,219 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:44,219 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:44,219 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:44,222 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:44,223 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:44,227 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:44,227 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:44,228 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:44,230 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:44,230 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:44,234 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:44,237 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:44,791 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO     2025-09-24 15:03:44,824 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+INFO     2025-09-24 15:03:51,784 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET / HTTP/1.1" 302 0
+INFO     2025-09-24 15:03:51,996 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /login/ HTTP/1.1" 302 0
+INFO     2025-09-24 15:03:52,226 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /dashboard/ HTTP/1.1" 200 789
+INFO     2025-09-24 15:03:52,252 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:03:52,253 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:04:09,688 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /login/ HTTP/1.1" 302 0
+INFO     2025-09-24 15:04:09,980 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /dashboard/ HTTP/1.1" 200 789
+INFO     2025-09-24 15:04:09,992 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:04:09,993 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:04:24,789 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /login/ HTTP/1.1" 302 0
+INFO     2025-09-24 15:04:25,001 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /dashboard/ HTTP/1.1" 200 789
+INFO     2025-09-24 15:04:25,014 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:04:25,015 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:04:28,707 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /logout/ HTTP/1.1" 302 0
+INFO     2025-09-24 15:04:28,776 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /login/ HTTP/1.1" 200 1806
+INFO     2025-09-24 15:04:28,788 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:04:28,788 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:04:45,014 0.0.0.0 django.server basehttp basehttp.py 213 log_message "POST /login/ HTTP/1.1" 200 1840
+INFO     2025-09-24 15:04:45,025 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:04:45,026 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:04:57,910 0.0.0.0 django.server basehttp basehttp.py 213 log_message "POST /login/ HTTP/1.1" 302 0
+INFO     2025-09-24 15:04:58,222 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /staff/dashboard/ HTTP/1.1" 200 10827
+INFO     2025-09-24 15:04:58,233 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+WARNING  2025-09-24 15:04:58,237 0.0.0.0 django.request log log.py 248 log_response Not Found: /static/images/default-avatar.jpg
+WARNING  2025-09-24 15:04:58,238 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/images/default-avatar.jpg HTTP/1.1" 404 2727
+INFO     2025-09-24 15:04:58,238 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:09:01,446 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /admin/accounts/user/2f36e7e3-8a04-4d09-bf87-ff8fd7deda80/change/ HTTP/1.1" 302 0
+INFO     2025-09-24 15:09:02,041 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /admin/login/?next=/admin/accounts/user/2f36e7e3-8a04-4d09-bf87-ff8fd7deda80/change/ HTTP/1.1" 200 3953
+INFO     2025-09-24 15:09:02,059 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:09:02,062 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:09:02,063 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:09:02,064 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:09:02,064 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/login.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:09:02,065 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO     2025-09-24 15:09:02,068 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:09:02,071 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+INFO     2025-09-24 15:09:07,502 0.0.0.0 django.server basehttp basehttp.py 81 handle_error - Broken pipe from ('127.0.0.1', 50123)
+INFO     2025-09-24 15:09:08,040 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /admin/accounts/user/f112ba02-bb86-4b79-b1a8-d30198964cf5/change/ HTTP/1.1" 302 0
+INFO     2025-09-24 15:09:08,299 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /admin/login/?next=/admin/accounts/user/f112ba02-bb86-4b79-b1a8-d30198964cf5/change/ HTTP/1.1" 200 3831
+INFO     2025-09-24 15:09:08,737 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /admin/accounts/user/ HTTP/1.1" 302 0
+INFO     2025-09-24 15:09:08,980 0.0.0.0 django.server basehttp basehttp.py 81 handle_error - Broken pipe from ('127.0.0.1', 50122)
+INFO     2025-09-24 15:09:09,269 0.0.0.0 django.server basehttp basehttp.py 81 handle_error - Broken pipe from ('127.0.0.1', 61265)
+INFO     2025-09-24 15:09:09,637 0.0.0.0 django.server basehttp basehttp.py 81 handle_error - Broken pipe from ('127.0.0.1', 50121)
+INFO     2025-09-24 15:09:09,726 0.0.0.0 django.server basehttp basehttp.py 81 handle_error - Broken pipe from ('127.0.0.1', 61264)
+INFO     2025-09-24 15:09:09,726 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /admin/login/?next=/admin/ HTTP/1.1" 200 3715
+INFO     2025-09-24 15:10:26,327 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET / HTTP/1.1" 302 0
+INFO     2025-09-24 15:10:26,628 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /login/ HTTP/1.1" 302 0
+INFO     2025-09-24 15:10:26,931 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /dashboard/ HTTP/1.1" 200 789
+INFO     2025-09-24 15:10:26,955 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/js/base.js HTTP/1.1" 304 0
+INFO     2025-09-24 15:10:26,955 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /static/css/base.css HTTP/1.1" 304 0
+WARNING  2025-09-24 15:10:42,274 0.0.0.0 django.request log log.py 248 log_response Forbidden (Permission denied): /customer/dashboard/
+Traceback (most recent call last):
+  File "D:\tailor\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\tailor\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\tailor\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\tailor\venv\Lib\site-packages\accounts\views.py", line 24, in wrapper
+    raise PermissionDenied
+django.core.exceptions.PermissionDenied
+WARNING  2025-09-24 15:10:42,381 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /customer/dashboard/ HTTP/1.1" 403 135
+WARNING  2025-09-24 15:10:48,996 0.0.0.0 django.request log log.py 248 log_response Forbidden (Permission denied): /customer/dashboard/
+Traceback (most recent call last):
+  File "D:\tailor\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\tailor\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\tailor\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\tailor\venv\Lib\site-packages\accounts\views.py", line 24, in wrapper
+    raise PermissionDenied
+django.core.exceptions.PermissionDenied
+WARNING  2025-09-24 15:10:48,999 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /customer/dashboard/ HTTP/1.1" 403 135
+WARNING  2025-09-24 15:10:50,349 0.0.0.0 django.request log log.py 248 log_response Forbidden (Permission denied): /customer/dashboard/
+Traceback (most recent call last):
+  File "D:\tailor\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\tailor\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\tailor\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\tailor\venv\Lib\site-packages\accounts\views.py", line 24, in wrapper
+    raise PermissionDenied
+django.core.exceptions.PermissionDenied
+WARNING  2025-09-24 15:10:50,351 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /customer/dashboard/ HTTP/1.1" 403 135
+WARNING  2025-09-24 15:10:50,798 0.0.0.0 django.request log log.py 248 log_response Forbidden (Permission denied): /customer/dashboard/
+Traceback (most recent call last):
+  File "D:\tailor\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\tailor\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\tailor\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\tailor\venv\Lib\site-packages\accounts\views.py", line 24, in wrapper
+    raise PermissionDenied
+django.core.exceptions.PermissionDenied
+WARNING  2025-09-24 15:10:50,800 0.0.0.0 django.server basehttp basehttp.py 213 log_message "GET /customer/dashboard/ HTTP/1.1" 403 135
+INFO     2025-09-24 15:13:06,301 0.0.0.0 django.utils.autoreload autoreload autoreload.py 265 trigger_reload D:\tailor\src\dev-tailoring-management-system\customers\models.py changed, reloading.
+INFO     2025-09-24 15:13:12,938 0.0.0.0 django.utils.autoreload autoreload autoreload.py 667 run_with_reloader Watching for file changes with StatReloader
+INFO     2025-09-24 15:18:14,832 0.0.0.0 django.utils.autoreload autoreload autoreload.py 265 trigger_reload D:\tailor\src\dev-tailoring-management-system\customers\models.py changed, reloading.
+INFO     2025-09-24 15:18:16,247 0.0.0.0 django.utils.autoreload autoreload autoreload.py 667 run_with_reloader Watching for file changes with StatReloader
+INFO     2025-09-24 15:21:37,746 0.0.0.0 django.utils.autoreload autoreload autoreload.py 265 trigger_reload D:\tailor\src\dev-tailoring-management-system\customers\models.py changed, reloading.
+INFO     2025-09-24 15:21:38,689 0.0.0.0 django.utils.autoreload autoreload autoreload.py 667 run_with_reloader Watching for file changes with StatReloader
+INFO     2025-09-24 15:37:06,354 0.0.0.0 django.utils.autoreload autoreload autoreload.py 265 trigger_reload D:\tailor\src\dev-tailoring-management-system\customers\models.py changed, reloading.
+INFO     2025-09-24 15:37:10,118 0.0.0.0 django.utils.autoreload autoreload autoreload.py 667 run_with_reloader Watching for file changes with StatReloader
+INFO     2025-09-24 15:37:52,555 0.0.0.0 django.utils.autoreload autoreload autoreload.py 265 trigger_reload D:\tailor\src\dev-tailoring-management-system\customers\models.py changed, reloading.
+INFO     2025-09-24 15:37:53,430 0.0.0.0 django.utils.autoreload autoreload autoreload.py 667 run_with_reloader Watching for file changes with StatReloader
+INFO     2025-09-24 15:49:46,730 0.0.0.0 django.utils.autoreload autoreload autoreload.py 265 trigger_reload D:\tailor\src\dev-tailoring-management-system\customers\models.py changed, reloading.
+INFO     2025-09-24 15:49:48,135 0.0.0.0 django.utils.autoreload autoreload autoreload.py 667 run_with_reloader Watching for file changes with StatReloader
+INFO     2025-09-24 16:05:02,805 0.0.0.0 django.utils.autoreload autoreload autoreload.py 265 trigger_reload D:\tailor\src\dev-tailoring-management-system\customers\models.py changed, reloading.
+INFO     2025-09-24 16:05:03,672 0.0.0.0 django.utils.autoreload autoreload autoreload.py 667 run_with_reloader Watching for file changes with StatReloader

@@ -1,0 +1,29 @@
+<li class="nav-item dropdown" id="notif-dropdown-root">
+  <a class="nav-link position-relative" href="#" id="notifDropdown"
+     role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+      <i class="bi bi-bell-fill" style="font-size: 1.25rem;"></i>
+
+      <span id="notif-badge"
+            class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill"
+            style="display:none; font-size: 0.6rem;">
+        0
+      </span>
+  </a>
+
+  <ul class="dropdown-menu dropdown-menu-end shadow"
+      aria-labelledby="notifDropdown"
+      style="width: 320px; border-radius: 10px; max-height: 300px; overflow-y: auto;">
+
+      <li><h6 class="dropdown-header">Notifications</h6></li>
+      <li><hr class="dropdown-divider"></li>
+
+      <!-- ✅ this MUST be wrapped inside <li> -->
+      <li id="notif-items" class="px-2">
+          {% include 'notifications/_dropdown_items.html' with items=request.user.notifications.all|slice:':10' %}
+      </li>
+
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item text-center" href="{% url 'notifications:list' %}">View all</a></li>
+  </ul>
+</li>

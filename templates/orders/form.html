@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <h2>Place New Order</h2>
+  <form method="post" class="card p-4 shadow-sm">
+    {% csrf_token %}
+
+    <div class="mb-3">
+      <label for="id_dress_type" class="form-label">Dress Type</label>
+      {{ form.dress_type }}
+    </div>
+
+    <div class="mb-3 d-flex align-items-end">
+      <div class="flex-grow-1 me-2">
+        <label for="id_fabric" class="form-label">Fabric</label>
+        {{ form.fabric }}
+      </div>
+      <div>
+        <!-- Add fabric button -->
+        <a href="#" class="btn btn-outline-primary mt-4">+ Add Fabric</a>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="id_color" class="form-label">Color</label>
+      {{ form.color }}
+    </div>
+
+    <div class="mb-3">
+      <label for="id_quantity" class="form-label">Quantity</label>
+      {{ form.quantity }}
+    </div>
+
+    <div class="mb-3">
+      <label for="id_measurements" class="form-label">Measurements</label>
+      {{ form.measurements }}
+    </div>
+
+    <div class="form-group">
+      <label for="id_assigned_staff">Select Staff</label>
+      {{ form.assigned_staff }}
+    </div>
+
+
+    <button type="submit" class="btn btn-success mt-3">Place Order</button>
+  </form>
+</div>
+{% endblock %}
